@@ -1,0 +1,1 @@
+LOAD TABLE prod FROM "bb.csv";LOAD TABLE sales FROM "vendas.csv";

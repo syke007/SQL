@@ -1,0 +1,1471 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    str
+
+Grammar
+
+Rule 0     S' -> recur
+Rule 1     recur -> S
+Rule 2     recur -> recur S
+Rule 3     S -> commands
+Rule 4     S -> proced
+Rule 5     S -> v
+Rule 6     S -> callf
+Rule 7     v -> var
+Rule 8     commands -> LOAD table
+Rule 9     commands -> DISCARD table
+Rule 10    commands -> SHOW table
+Rule 11    commands -> SAVE table
+Rule 12    commands -> SELECT select
+Rule 13    commands -> CREATE table
+Rule 14    table -> TABLE var ;
+Rule 15    table -> TABLE var from
+Rule 16    table -> TABLE var as
+Rule 17    select -> * from
+Rule 18    select -> v_list from
+Rule 19    v_list -> var
+Rule 20    v_list -> v_list , var
+Rule 21    as -> AS var ;
+Rule 22    from -> FROM var ;
+Rule 23    from -> FROM var where
+Rule 24    from -> FROM commands
+Rule 25    from -> FROM var join
+Rule 26    from -> FROM string ;
+Rule 27    join -> JOIN var using
+Rule 28    using -> USING ( var = nr ) ;
+Rule 29    using -> USING ( var = string ) ;
+Rule 30    where -> WHERE operator
+Rule 31    operator -> var = nr op
+Rule 32    operator -> var = string op
+Rule 33    operator -> var < > nr op
+Rule 34    operator -> var < > string op
+Rule 35    operator -> var < nr op
+Rule 36    operator -> var > nr op
+Rule 37    operator -> var < = nr op
+Rule 38    operator -> var > = nr op
+Rule 39    op -> ;
+Rule 40    op -> AND operator
+Rule 41    op -> LIMIT nr ;
+Rule 42    proced -> PROCED var DO listt END
+Rule 43    listt -> commands
+Rule 44    listt -> listt commands
+Rule 45    callf -> CALL var ;
+
+Terminals, with rules where they appear
+
+(                    : 28 29
+)                    : 28 29
+*                    : 17
+,                    : 20
+;                    : 14 21 22 26 28 29 39 41 45
+<                    : 33 34 35 37
+=                    : 28 29 31 32 37 38
+>                    : 33 34 36 38
+AND                  : 40
+AS                   : 21
+CALL                 : 45
+CREATE               : 13
+DISCARD              : 9
+DO                   : 42
+END                  : 42
+FROM                 : 22 23 24 25 26
+JOIN                 : 27
+LIMIT                : 41
+LOAD                 : 8
+PROCED               : 42
+SAVE                 : 11
+SELECT               : 12
+SHOW                 : 10
+TABLE                : 14 15 16
+USING                : 28 29
+WHERE                : 30
+error                : 
+nr                   : 28 31 33 35 36 37 38 41
+str                  : 
+string               : 26 29 32 34
+var                  : 7 14 15 16 19 20 21 22 23 25 27 28 29 31 32 33 34 35 36 37 38 42 45
+
+Nonterminals, with rules where they appear
+
+S                    : 1 2
+as                   : 16
+callf                : 6
+commands             : 3 24 43 44
+from                 : 15 17 18
+join                 : 25
+listt                : 42 44
+op                   : 31 32 33 34 35 36 37 38
+operator             : 30 40
+proced               : 4
+recur                : 2 0
+select               : 12
+table                : 8 9 10 11 13
+using                : 27
+v                    : 5
+v_list               : 18 20
+where                : 23
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . recur
+    (1) recur -> . S
+    (2) recur -> . recur S
+    (3) S -> . commands
+    (4) S -> . proced
+    (5) S -> . v
+    (6) S -> . callf
+    (8) commands -> . LOAD table
+    (9) commands -> . DISCARD table
+    (10) commands -> . SHOW table
+    (11) commands -> . SAVE table
+    (12) commands -> . SELECT select
+    (13) commands -> . CREATE table
+    (42) proced -> . PROCED var DO listt END
+    (7) v -> . var
+    (45) callf -> . CALL var ;
+
+    LOAD            shift and go to state 7
+    DISCARD         shift and go to state 8
+    SHOW            shift and go to state 9
+    SAVE            shift and go to state 10
+    SELECT          shift and go to state 11
+    CREATE          shift and go to state 12
+    PROCED          shift and go to state 13
+    var             shift and go to state 14
+    CALL            shift and go to state 15
+
+    recur                          shift and go to state 1
+    S                              shift and go to state 2
+    commands                       shift and go to state 3
+    proced                         shift and go to state 4
+    v                              shift and go to state 5
+    callf                          shift and go to state 6
+
+state 1
+
+    (0) S' -> recur .
+    (2) recur -> recur . S
+    (3) S -> . commands
+    (4) S -> . proced
+    (5) S -> . v
+    (6) S -> . callf
+    (8) commands -> . LOAD table
+    (9) commands -> . DISCARD table
+    (10) commands -> . SHOW table
+    (11) commands -> . SAVE table
+    (12) commands -> . SELECT select
+    (13) commands -> . CREATE table
+    (42) proced -> . PROCED var DO listt END
+    (7) v -> . var
+    (45) callf -> . CALL var ;
+
+    LOAD            shift and go to state 7
+    DISCARD         shift and go to state 8
+    SHOW            shift and go to state 9
+    SAVE            shift and go to state 10
+    SELECT          shift and go to state 11
+    CREATE          shift and go to state 12
+    PROCED          shift and go to state 13
+    var             shift and go to state 14
+    CALL            shift and go to state 15
+
+    S                              shift and go to state 16
+    commands                       shift and go to state 3
+    proced                         shift and go to state 4
+    v                              shift and go to state 5
+    callf                          shift and go to state 6
+
+state 2
+
+    (1) recur -> S .
+
+    LOAD            reduce using rule 1 (recur -> S .)
+    DISCARD         reduce using rule 1 (recur -> S .)
+    SHOW            reduce using rule 1 (recur -> S .)
+    SAVE            reduce using rule 1 (recur -> S .)
+    SELECT          reduce using rule 1 (recur -> S .)
+    CREATE          reduce using rule 1 (recur -> S .)
+    PROCED          reduce using rule 1 (recur -> S .)
+    var             reduce using rule 1 (recur -> S .)
+    CALL            reduce using rule 1 (recur -> S .)
+    $end            reduce using rule 1 (recur -> S .)
+
+
+state 3
+
+    (3) S -> commands .
+
+    LOAD            reduce using rule 3 (S -> commands .)
+    DISCARD         reduce using rule 3 (S -> commands .)
+    SHOW            reduce using rule 3 (S -> commands .)
+    SAVE            reduce using rule 3 (S -> commands .)
+    SELECT          reduce using rule 3 (S -> commands .)
+    CREATE          reduce using rule 3 (S -> commands .)
+    PROCED          reduce using rule 3 (S -> commands .)
+    var             reduce using rule 3 (S -> commands .)
+    CALL            reduce using rule 3 (S -> commands .)
+    $end            reduce using rule 3 (S -> commands .)
+
+
+state 4
+
+    (4) S -> proced .
+
+    LOAD            reduce using rule 4 (S -> proced .)
+    DISCARD         reduce using rule 4 (S -> proced .)
+    SHOW            reduce using rule 4 (S -> proced .)
+    SAVE            reduce using rule 4 (S -> proced .)
+    SELECT          reduce using rule 4 (S -> proced .)
+    CREATE          reduce using rule 4 (S -> proced .)
+    PROCED          reduce using rule 4 (S -> proced .)
+    var             reduce using rule 4 (S -> proced .)
+    CALL            reduce using rule 4 (S -> proced .)
+    $end            reduce using rule 4 (S -> proced .)
+
+
+state 5
+
+    (5) S -> v .
+
+    LOAD            reduce using rule 5 (S -> v .)
+    DISCARD         reduce using rule 5 (S -> v .)
+    SHOW            reduce using rule 5 (S -> v .)
+    SAVE            reduce using rule 5 (S -> v .)
+    SELECT          reduce using rule 5 (S -> v .)
+    CREATE          reduce using rule 5 (S -> v .)
+    PROCED          reduce using rule 5 (S -> v .)
+    var             reduce using rule 5 (S -> v .)
+    CALL            reduce using rule 5 (S -> v .)
+    $end            reduce using rule 5 (S -> v .)
+
+
+state 6
+
+    (6) S -> callf .
+
+    LOAD            reduce using rule 6 (S -> callf .)
+    DISCARD         reduce using rule 6 (S -> callf .)
+    SHOW            reduce using rule 6 (S -> callf .)
+    SAVE            reduce using rule 6 (S -> callf .)
+    SELECT          reduce using rule 6 (S -> callf .)
+    CREATE          reduce using rule 6 (S -> callf .)
+    PROCED          reduce using rule 6 (S -> callf .)
+    var             reduce using rule 6 (S -> callf .)
+    CALL            reduce using rule 6 (S -> callf .)
+    $end            reduce using rule 6 (S -> callf .)
+
+
+state 7
+
+    (8) commands -> LOAD . table
+    (14) table -> . TABLE var ;
+    (15) table -> . TABLE var from
+    (16) table -> . TABLE var as
+
+    TABLE           shift and go to state 18
+
+    table                          shift and go to state 17
+
+state 8
+
+    (9) commands -> DISCARD . table
+    (14) table -> . TABLE var ;
+    (15) table -> . TABLE var from
+    (16) table -> . TABLE var as
+
+    TABLE           shift and go to state 18
+
+    table                          shift and go to state 19
+
+state 9
+
+    (10) commands -> SHOW . table
+    (14) table -> . TABLE var ;
+    (15) table -> . TABLE var from
+    (16) table -> . TABLE var as
+
+    TABLE           shift and go to state 18
+
+    table                          shift and go to state 20
+
+state 10
+
+    (11) commands -> SAVE . table
+    (14) table -> . TABLE var ;
+    (15) table -> . TABLE var from
+    (16) table -> . TABLE var as
+
+    TABLE           shift and go to state 18
+
+    table                          shift and go to state 21
+
+state 11
+
+    (12) commands -> SELECT . select
+    (17) select -> . * from
+    (18) select -> . v_list from
+    (19) v_list -> . var
+    (20) v_list -> . v_list , var
+
+    *               shift and go to state 23
+    var             shift and go to state 25
+
+    select                         shift and go to state 22
+    v_list                         shift and go to state 24
+
+state 12
+
+    (13) commands -> CREATE . table
+    (14) table -> . TABLE var ;
+    (15) table -> . TABLE var from
+    (16) table -> . TABLE var as
+
+    TABLE           shift and go to state 18
+
+    table                          shift and go to state 26
+
+state 13
+
+    (42) proced -> PROCED . var DO listt END
+
+    var             shift and go to state 27
+
+
+state 14
+
+    (7) v -> var .
+
+    LOAD            reduce using rule 7 (v -> var .)
+    DISCARD         reduce using rule 7 (v -> var .)
+    SHOW            reduce using rule 7 (v -> var .)
+    SAVE            reduce using rule 7 (v -> var .)
+    SELECT          reduce using rule 7 (v -> var .)
+    CREATE          reduce using rule 7 (v -> var .)
+    PROCED          reduce using rule 7 (v -> var .)
+    var             reduce using rule 7 (v -> var .)
+    CALL            reduce using rule 7 (v -> var .)
+    $end            reduce using rule 7 (v -> var .)
+
+
+state 15
+
+    (45) callf -> CALL . var ;
+
+    var             shift and go to state 28
+
+
+state 16
+
+    (2) recur -> recur S .
+
+    LOAD            reduce using rule 2 (recur -> recur S .)
+    DISCARD         reduce using rule 2 (recur -> recur S .)
+    SHOW            reduce using rule 2 (recur -> recur S .)
+    SAVE            reduce using rule 2 (recur -> recur S .)
+    SELECT          reduce using rule 2 (recur -> recur S .)
+    CREATE          reduce using rule 2 (recur -> recur S .)
+    PROCED          reduce using rule 2 (recur -> recur S .)
+    var             reduce using rule 2 (recur -> recur S .)
+    CALL            reduce using rule 2 (recur -> recur S .)
+    $end            reduce using rule 2 (recur -> recur S .)
+
+
+state 17
+
+    (8) commands -> LOAD table .
+
+    LOAD            reduce using rule 8 (commands -> LOAD table .)
+    DISCARD         reduce using rule 8 (commands -> LOAD table .)
+    SHOW            reduce using rule 8 (commands -> LOAD table .)
+    SAVE            reduce using rule 8 (commands -> LOAD table .)
+    SELECT          reduce using rule 8 (commands -> LOAD table .)
+    CREATE          reduce using rule 8 (commands -> LOAD table .)
+    PROCED          reduce using rule 8 (commands -> LOAD table .)
+    var             reduce using rule 8 (commands -> LOAD table .)
+    CALL            reduce using rule 8 (commands -> LOAD table .)
+    $end            reduce using rule 8 (commands -> LOAD table .)
+    END             reduce using rule 8 (commands -> LOAD table .)
+
+
+state 18
+
+    (14) table -> TABLE . var ;
+    (15) table -> TABLE . var from
+    (16) table -> TABLE . var as
+
+    var             shift and go to state 29
+
+
+state 19
+
+    (9) commands -> DISCARD table .
+
+    LOAD            reduce using rule 9 (commands -> DISCARD table .)
+    DISCARD         reduce using rule 9 (commands -> DISCARD table .)
+    SHOW            reduce using rule 9 (commands -> DISCARD table .)
+    SAVE            reduce using rule 9 (commands -> DISCARD table .)
+    SELECT          reduce using rule 9 (commands -> DISCARD table .)
+    CREATE          reduce using rule 9 (commands -> DISCARD table .)
+    PROCED          reduce using rule 9 (commands -> DISCARD table .)
+    var             reduce using rule 9 (commands -> DISCARD table .)
+    CALL            reduce using rule 9 (commands -> DISCARD table .)
+    $end            reduce using rule 9 (commands -> DISCARD table .)
+    END             reduce using rule 9 (commands -> DISCARD table .)
+
+
+state 20
+
+    (10) commands -> SHOW table .
+
+    LOAD            reduce using rule 10 (commands -> SHOW table .)
+    DISCARD         reduce using rule 10 (commands -> SHOW table .)
+    SHOW            reduce using rule 10 (commands -> SHOW table .)
+    SAVE            reduce using rule 10 (commands -> SHOW table .)
+    SELECT          reduce using rule 10 (commands -> SHOW table .)
+    CREATE          reduce using rule 10 (commands -> SHOW table .)
+    PROCED          reduce using rule 10 (commands -> SHOW table .)
+    var             reduce using rule 10 (commands -> SHOW table .)
+    CALL            reduce using rule 10 (commands -> SHOW table .)
+    $end            reduce using rule 10 (commands -> SHOW table .)
+    END             reduce using rule 10 (commands -> SHOW table .)
+
+
+state 21
+
+    (11) commands -> SAVE table .
+
+    LOAD            reduce using rule 11 (commands -> SAVE table .)
+    DISCARD         reduce using rule 11 (commands -> SAVE table .)
+    SHOW            reduce using rule 11 (commands -> SAVE table .)
+    SAVE            reduce using rule 11 (commands -> SAVE table .)
+    SELECT          reduce using rule 11 (commands -> SAVE table .)
+    CREATE          reduce using rule 11 (commands -> SAVE table .)
+    PROCED          reduce using rule 11 (commands -> SAVE table .)
+    var             reduce using rule 11 (commands -> SAVE table .)
+    CALL            reduce using rule 11 (commands -> SAVE table .)
+    $end            reduce using rule 11 (commands -> SAVE table .)
+    END             reduce using rule 11 (commands -> SAVE table .)
+
+
+state 22
+
+    (12) commands -> SELECT select .
+
+    LOAD            reduce using rule 12 (commands -> SELECT select .)
+    DISCARD         reduce using rule 12 (commands -> SELECT select .)
+    SHOW            reduce using rule 12 (commands -> SELECT select .)
+    SAVE            reduce using rule 12 (commands -> SELECT select .)
+    SELECT          reduce using rule 12 (commands -> SELECT select .)
+    CREATE          reduce using rule 12 (commands -> SELECT select .)
+    PROCED          reduce using rule 12 (commands -> SELECT select .)
+    var             reduce using rule 12 (commands -> SELECT select .)
+    CALL            reduce using rule 12 (commands -> SELECT select .)
+    $end            reduce using rule 12 (commands -> SELECT select .)
+    END             reduce using rule 12 (commands -> SELECT select .)
+
+
+state 23
+
+    (17) select -> * . from
+    (22) from -> . FROM var ;
+    (23) from -> . FROM var where
+    (24) from -> . FROM commands
+    (25) from -> . FROM var join
+    (26) from -> . FROM string ;
+
+    FROM            shift and go to state 31
+
+    from                           shift and go to state 30
+
+state 24
+
+    (18) select -> v_list . from
+    (20) v_list -> v_list . , var
+    (22) from -> . FROM var ;
+    (23) from -> . FROM var where
+    (24) from -> . FROM commands
+    (25) from -> . FROM var join
+    (26) from -> . FROM string ;
+
+    ,               shift and go to state 33
+    FROM            shift and go to state 31
+
+    from                           shift and go to state 32
+
+state 25
+
+    (19) v_list -> var .
+
+    ,               reduce using rule 19 (v_list -> var .)
+    FROM            reduce using rule 19 (v_list -> var .)
+
+
+state 26
+
+    (13) commands -> CREATE table .
+
+    LOAD            reduce using rule 13 (commands -> CREATE table .)
+    DISCARD         reduce using rule 13 (commands -> CREATE table .)
+    SHOW            reduce using rule 13 (commands -> CREATE table .)
+    SAVE            reduce using rule 13 (commands -> CREATE table .)
+    SELECT          reduce using rule 13 (commands -> CREATE table .)
+    CREATE          reduce using rule 13 (commands -> CREATE table .)
+    PROCED          reduce using rule 13 (commands -> CREATE table .)
+    var             reduce using rule 13 (commands -> CREATE table .)
+    CALL            reduce using rule 13 (commands -> CREATE table .)
+    $end            reduce using rule 13 (commands -> CREATE table .)
+    END             reduce using rule 13 (commands -> CREATE table .)
+
+
+state 27
+
+    (42) proced -> PROCED var . DO listt END
+
+    DO              shift and go to state 34
+
+
+state 28
+
+    (45) callf -> CALL var . ;
+
+    ;               shift and go to state 35
+
+
+state 29
+
+    (14) table -> TABLE var . ;
+    (15) table -> TABLE var . from
+    (16) table -> TABLE var . as
+    (22) from -> . FROM var ;
+    (23) from -> . FROM var where
+    (24) from -> . FROM commands
+    (25) from -> . FROM var join
+    (26) from -> . FROM string ;
+    (21) as -> . AS var ;
+
+    ;               shift and go to state 36
+    FROM            shift and go to state 31
+    AS              shift and go to state 39
+
+    from                           shift and go to state 37
+    as                             shift and go to state 38
+
+state 30
+
+    (17) select -> * from .
+
+    LOAD            reduce using rule 17 (select -> * from .)
+    DISCARD         reduce using rule 17 (select -> * from .)
+    SHOW            reduce using rule 17 (select -> * from .)
+    SAVE            reduce using rule 17 (select -> * from .)
+    SELECT          reduce using rule 17 (select -> * from .)
+    CREATE          reduce using rule 17 (select -> * from .)
+    PROCED          reduce using rule 17 (select -> * from .)
+    var             reduce using rule 17 (select -> * from .)
+    CALL            reduce using rule 17 (select -> * from .)
+    $end            reduce using rule 17 (select -> * from .)
+    END             reduce using rule 17 (select -> * from .)
+
+
+state 31
+
+    (22) from -> FROM . var ;
+    (23) from -> FROM . var where
+    (24) from -> FROM . commands
+    (25) from -> FROM . var join
+    (26) from -> FROM . string ;
+    (8) commands -> . LOAD table
+    (9) commands -> . DISCARD table
+    (10) commands -> . SHOW table
+    (11) commands -> . SAVE table
+    (12) commands -> . SELECT select
+    (13) commands -> . CREATE table
+
+    var             shift and go to state 40
+    string          shift and go to state 42
+    LOAD            shift and go to state 7
+    DISCARD         shift and go to state 8
+    SHOW            shift and go to state 9
+    SAVE            shift and go to state 10
+    SELECT          shift and go to state 11
+    CREATE          shift and go to state 12
+
+    commands                       shift and go to state 41
+
+state 32
+
+    (18) select -> v_list from .
+
+    LOAD            reduce using rule 18 (select -> v_list from .)
+    DISCARD         reduce using rule 18 (select -> v_list from .)
+    SHOW            reduce using rule 18 (select -> v_list from .)
+    SAVE            reduce using rule 18 (select -> v_list from .)
+    SELECT          reduce using rule 18 (select -> v_list from .)
+    CREATE          reduce using rule 18 (select -> v_list from .)
+    PROCED          reduce using rule 18 (select -> v_list from .)
+    var             reduce using rule 18 (select -> v_list from .)
+    CALL            reduce using rule 18 (select -> v_list from .)
+    $end            reduce using rule 18 (select -> v_list from .)
+    END             reduce using rule 18 (select -> v_list from .)
+
+
+state 33
+
+    (20) v_list -> v_list , . var
+
+    var             shift and go to state 43
+
+
+state 34
+
+    (42) proced -> PROCED var DO . listt END
+    (43) listt -> . commands
+    (44) listt -> . listt commands
+    (8) commands -> . LOAD table
+    (9) commands -> . DISCARD table
+    (10) commands -> . SHOW table
+    (11) commands -> . SAVE table
+    (12) commands -> . SELECT select
+    (13) commands -> . CREATE table
+
+    LOAD            shift and go to state 7
+    DISCARD         shift and go to state 8
+    SHOW            shift and go to state 9
+    SAVE            shift and go to state 10
+    SELECT          shift and go to state 11
+    CREATE          shift and go to state 12
+
+    listt                          shift and go to state 44
+    commands                       shift and go to state 45
+
+state 35
+
+    (45) callf -> CALL var ; .
+
+    LOAD            reduce using rule 45 (callf -> CALL var ; .)
+    DISCARD         reduce using rule 45 (callf -> CALL var ; .)
+    SHOW            reduce using rule 45 (callf -> CALL var ; .)
+    SAVE            reduce using rule 45 (callf -> CALL var ; .)
+    SELECT          reduce using rule 45 (callf -> CALL var ; .)
+    CREATE          reduce using rule 45 (callf -> CALL var ; .)
+    PROCED          reduce using rule 45 (callf -> CALL var ; .)
+    var             reduce using rule 45 (callf -> CALL var ; .)
+    CALL            reduce using rule 45 (callf -> CALL var ; .)
+    $end            reduce using rule 45 (callf -> CALL var ; .)
+
+
+state 36
+
+    (14) table -> TABLE var ; .
+
+    LOAD            reduce using rule 14 (table -> TABLE var ; .)
+    DISCARD         reduce using rule 14 (table -> TABLE var ; .)
+    SHOW            reduce using rule 14 (table -> TABLE var ; .)
+    SAVE            reduce using rule 14 (table -> TABLE var ; .)
+    SELECT          reduce using rule 14 (table -> TABLE var ; .)
+    CREATE          reduce using rule 14 (table -> TABLE var ; .)
+    PROCED          reduce using rule 14 (table -> TABLE var ; .)
+    var             reduce using rule 14 (table -> TABLE var ; .)
+    CALL            reduce using rule 14 (table -> TABLE var ; .)
+    $end            reduce using rule 14 (table -> TABLE var ; .)
+    END             reduce using rule 14 (table -> TABLE var ; .)
+
+
+state 37
+
+    (15) table -> TABLE var from .
+
+    LOAD            reduce using rule 15 (table -> TABLE var from .)
+    DISCARD         reduce using rule 15 (table -> TABLE var from .)
+    SHOW            reduce using rule 15 (table -> TABLE var from .)
+    SAVE            reduce using rule 15 (table -> TABLE var from .)
+    SELECT          reduce using rule 15 (table -> TABLE var from .)
+    CREATE          reduce using rule 15 (table -> TABLE var from .)
+    PROCED          reduce using rule 15 (table -> TABLE var from .)
+    var             reduce using rule 15 (table -> TABLE var from .)
+    CALL            reduce using rule 15 (table -> TABLE var from .)
+    $end            reduce using rule 15 (table -> TABLE var from .)
+    END             reduce using rule 15 (table -> TABLE var from .)
+
+
+state 38
+
+    (16) table -> TABLE var as .
+
+    LOAD            reduce using rule 16 (table -> TABLE var as .)
+    DISCARD         reduce using rule 16 (table -> TABLE var as .)
+    SHOW            reduce using rule 16 (table -> TABLE var as .)
+    SAVE            reduce using rule 16 (table -> TABLE var as .)
+    SELECT          reduce using rule 16 (table -> TABLE var as .)
+    CREATE          reduce using rule 16 (table -> TABLE var as .)
+    PROCED          reduce using rule 16 (table -> TABLE var as .)
+    var             reduce using rule 16 (table -> TABLE var as .)
+    CALL            reduce using rule 16 (table -> TABLE var as .)
+    $end            reduce using rule 16 (table -> TABLE var as .)
+    END             reduce using rule 16 (table -> TABLE var as .)
+
+
+state 39
+
+    (21) as -> AS . var ;
+
+    var             shift and go to state 46
+
+
+state 40
+
+    (22) from -> FROM var . ;
+    (23) from -> FROM var . where
+    (25) from -> FROM var . join
+    (30) where -> . WHERE operator
+    (27) join -> . JOIN var using
+
+    ;               shift and go to state 47
+    WHERE           shift and go to state 50
+    JOIN            shift and go to state 51
+
+    where                          shift and go to state 48
+    join                           shift and go to state 49
+
+state 41
+
+    (24) from -> FROM commands .
+
+    LOAD            reduce using rule 24 (from -> FROM commands .)
+    DISCARD         reduce using rule 24 (from -> FROM commands .)
+    SHOW            reduce using rule 24 (from -> FROM commands .)
+    SAVE            reduce using rule 24 (from -> FROM commands .)
+    SELECT          reduce using rule 24 (from -> FROM commands .)
+    CREATE          reduce using rule 24 (from -> FROM commands .)
+    PROCED          reduce using rule 24 (from -> FROM commands .)
+    var             reduce using rule 24 (from -> FROM commands .)
+    CALL            reduce using rule 24 (from -> FROM commands .)
+    $end            reduce using rule 24 (from -> FROM commands .)
+    END             reduce using rule 24 (from -> FROM commands .)
+
+
+state 42
+
+    (26) from -> FROM string . ;
+
+    ;               shift and go to state 52
+
+
+state 43
+
+    (20) v_list -> v_list , var .
+
+    ,               reduce using rule 20 (v_list -> v_list , var .)
+    FROM            reduce using rule 20 (v_list -> v_list , var .)
+
+
+state 44
+
+    (42) proced -> PROCED var DO listt . END
+    (44) listt -> listt . commands
+    (8) commands -> . LOAD table
+    (9) commands -> . DISCARD table
+    (10) commands -> . SHOW table
+    (11) commands -> . SAVE table
+    (12) commands -> . SELECT select
+    (13) commands -> . CREATE table
+
+    END             shift and go to state 53
+    LOAD            shift and go to state 7
+    DISCARD         shift and go to state 8
+    SHOW            shift and go to state 9
+    SAVE            shift and go to state 10
+    SELECT          shift and go to state 11
+    CREATE          shift and go to state 12
+
+    commands                       shift and go to state 54
+
+state 45
+
+    (43) listt -> commands .
+
+    END             reduce using rule 43 (listt -> commands .)
+    LOAD            reduce using rule 43 (listt -> commands .)
+    DISCARD         reduce using rule 43 (listt -> commands .)
+    SHOW            reduce using rule 43 (listt -> commands .)
+    SAVE            reduce using rule 43 (listt -> commands .)
+    SELECT          reduce using rule 43 (listt -> commands .)
+    CREATE          reduce using rule 43 (listt -> commands .)
+
+
+state 46
+
+    (21) as -> AS var . ;
+
+    ;               shift and go to state 55
+
+
+state 47
+
+    (22) from -> FROM var ; .
+
+    LOAD            reduce using rule 22 (from -> FROM var ; .)
+    DISCARD         reduce using rule 22 (from -> FROM var ; .)
+    SHOW            reduce using rule 22 (from -> FROM var ; .)
+    SAVE            reduce using rule 22 (from -> FROM var ; .)
+    SELECT          reduce using rule 22 (from -> FROM var ; .)
+    CREATE          reduce using rule 22 (from -> FROM var ; .)
+    PROCED          reduce using rule 22 (from -> FROM var ; .)
+    var             reduce using rule 22 (from -> FROM var ; .)
+    CALL            reduce using rule 22 (from -> FROM var ; .)
+    $end            reduce using rule 22 (from -> FROM var ; .)
+    END             reduce using rule 22 (from -> FROM var ; .)
+
+
+state 48
+
+    (23) from -> FROM var where .
+
+    LOAD            reduce using rule 23 (from -> FROM var where .)
+    DISCARD         reduce using rule 23 (from -> FROM var where .)
+    SHOW            reduce using rule 23 (from -> FROM var where .)
+    SAVE            reduce using rule 23 (from -> FROM var where .)
+    SELECT          reduce using rule 23 (from -> FROM var where .)
+    CREATE          reduce using rule 23 (from -> FROM var where .)
+    PROCED          reduce using rule 23 (from -> FROM var where .)
+    var             reduce using rule 23 (from -> FROM var where .)
+    CALL            reduce using rule 23 (from -> FROM var where .)
+    $end            reduce using rule 23 (from -> FROM var where .)
+    END             reduce using rule 23 (from -> FROM var where .)
+
+
+state 49
+
+    (25) from -> FROM var join .
+
+    LOAD            reduce using rule 25 (from -> FROM var join .)
+    DISCARD         reduce using rule 25 (from -> FROM var join .)
+    SHOW            reduce using rule 25 (from -> FROM var join .)
+    SAVE            reduce using rule 25 (from -> FROM var join .)
+    SELECT          reduce using rule 25 (from -> FROM var join .)
+    CREATE          reduce using rule 25 (from -> FROM var join .)
+    PROCED          reduce using rule 25 (from -> FROM var join .)
+    var             reduce using rule 25 (from -> FROM var join .)
+    CALL            reduce using rule 25 (from -> FROM var join .)
+    $end            reduce using rule 25 (from -> FROM var join .)
+    END             reduce using rule 25 (from -> FROM var join .)
+
+
+state 50
+
+    (30) where -> WHERE . operator
+    (31) operator -> . var = nr op
+    (32) operator -> . var = string op
+    (33) operator -> . var < > nr op
+    (34) operator -> . var < > string op
+    (35) operator -> . var < nr op
+    (36) operator -> . var > nr op
+    (37) operator -> . var < = nr op
+    (38) operator -> . var > = nr op
+
+    var             shift and go to state 57
+
+    operator                       shift and go to state 56
+
+state 51
+
+    (27) join -> JOIN . var using
+
+    var             shift and go to state 58
+
+
+state 52
+
+    (26) from -> FROM string ; .
+
+    LOAD            reduce using rule 26 (from -> FROM string ; .)
+    DISCARD         reduce using rule 26 (from -> FROM string ; .)
+    SHOW            reduce using rule 26 (from -> FROM string ; .)
+    SAVE            reduce using rule 26 (from -> FROM string ; .)
+    SELECT          reduce using rule 26 (from -> FROM string ; .)
+    CREATE          reduce using rule 26 (from -> FROM string ; .)
+    PROCED          reduce using rule 26 (from -> FROM string ; .)
+    var             reduce using rule 26 (from -> FROM string ; .)
+    CALL            reduce using rule 26 (from -> FROM string ; .)
+    $end            reduce using rule 26 (from -> FROM string ; .)
+    END             reduce using rule 26 (from -> FROM string ; .)
+
+
+state 53
+
+    (42) proced -> PROCED var DO listt END .
+
+    LOAD            reduce using rule 42 (proced -> PROCED var DO listt END .)
+    DISCARD         reduce using rule 42 (proced -> PROCED var DO listt END .)
+    SHOW            reduce using rule 42 (proced -> PROCED var DO listt END .)
+    SAVE            reduce using rule 42 (proced -> PROCED var DO listt END .)
+    SELECT          reduce using rule 42 (proced -> PROCED var DO listt END .)
+    CREATE          reduce using rule 42 (proced -> PROCED var DO listt END .)
+    PROCED          reduce using rule 42 (proced -> PROCED var DO listt END .)
+    var             reduce using rule 42 (proced -> PROCED var DO listt END .)
+    CALL            reduce using rule 42 (proced -> PROCED var DO listt END .)
+    $end            reduce using rule 42 (proced -> PROCED var DO listt END .)
+
+
+state 54
+
+    (44) listt -> listt commands .
+
+    END             reduce using rule 44 (listt -> listt commands .)
+    LOAD            reduce using rule 44 (listt -> listt commands .)
+    DISCARD         reduce using rule 44 (listt -> listt commands .)
+    SHOW            reduce using rule 44 (listt -> listt commands .)
+    SAVE            reduce using rule 44 (listt -> listt commands .)
+    SELECT          reduce using rule 44 (listt -> listt commands .)
+    CREATE          reduce using rule 44 (listt -> listt commands .)
+
+
+state 55
+
+    (21) as -> AS var ; .
+
+    LOAD            reduce using rule 21 (as -> AS var ; .)
+    DISCARD         reduce using rule 21 (as -> AS var ; .)
+    SHOW            reduce using rule 21 (as -> AS var ; .)
+    SAVE            reduce using rule 21 (as -> AS var ; .)
+    SELECT          reduce using rule 21 (as -> AS var ; .)
+    CREATE          reduce using rule 21 (as -> AS var ; .)
+    PROCED          reduce using rule 21 (as -> AS var ; .)
+    var             reduce using rule 21 (as -> AS var ; .)
+    CALL            reduce using rule 21 (as -> AS var ; .)
+    $end            reduce using rule 21 (as -> AS var ; .)
+    END             reduce using rule 21 (as -> AS var ; .)
+
+
+state 56
+
+    (30) where -> WHERE operator .
+
+    LOAD            reduce using rule 30 (where -> WHERE operator .)
+    DISCARD         reduce using rule 30 (where -> WHERE operator .)
+    SHOW            reduce using rule 30 (where -> WHERE operator .)
+    SAVE            reduce using rule 30 (where -> WHERE operator .)
+    SELECT          reduce using rule 30 (where -> WHERE operator .)
+    CREATE          reduce using rule 30 (where -> WHERE operator .)
+    PROCED          reduce using rule 30 (where -> WHERE operator .)
+    var             reduce using rule 30 (where -> WHERE operator .)
+    CALL            reduce using rule 30 (where -> WHERE operator .)
+    $end            reduce using rule 30 (where -> WHERE operator .)
+    END             reduce using rule 30 (where -> WHERE operator .)
+
+
+state 57
+
+    (31) operator -> var . = nr op
+    (32) operator -> var . = string op
+    (33) operator -> var . < > nr op
+    (34) operator -> var . < > string op
+    (35) operator -> var . < nr op
+    (36) operator -> var . > nr op
+    (37) operator -> var . < = nr op
+    (38) operator -> var . > = nr op
+
+    =               shift and go to state 59
+    <               shift and go to state 60
+    >               shift and go to state 61
+
+
+state 58
+
+    (27) join -> JOIN var . using
+    (28) using -> . USING ( var = nr ) ;
+    (29) using -> . USING ( var = string ) ;
+
+    USING           shift and go to state 63
+
+    using                          shift and go to state 62
+
+state 59
+
+    (31) operator -> var = . nr op
+    (32) operator -> var = . string op
+
+    nr              shift and go to state 64
+    string          shift and go to state 65
+
+
+state 60
+
+    (33) operator -> var < . > nr op
+    (34) operator -> var < . > string op
+    (35) operator -> var < . nr op
+    (37) operator -> var < . = nr op
+
+    >               shift and go to state 66
+    nr              shift and go to state 67
+    =               shift and go to state 68
+
+
+state 61
+
+    (36) operator -> var > . nr op
+    (38) operator -> var > . = nr op
+
+    nr              shift and go to state 69
+    =               shift and go to state 70
+
+
+state 62
+
+    (27) join -> JOIN var using .
+
+    LOAD            reduce using rule 27 (join -> JOIN var using .)
+    DISCARD         reduce using rule 27 (join -> JOIN var using .)
+    SHOW            reduce using rule 27 (join -> JOIN var using .)
+    SAVE            reduce using rule 27 (join -> JOIN var using .)
+    SELECT          reduce using rule 27 (join -> JOIN var using .)
+    CREATE          reduce using rule 27 (join -> JOIN var using .)
+    PROCED          reduce using rule 27 (join -> JOIN var using .)
+    var             reduce using rule 27 (join -> JOIN var using .)
+    CALL            reduce using rule 27 (join -> JOIN var using .)
+    $end            reduce using rule 27 (join -> JOIN var using .)
+    END             reduce using rule 27 (join -> JOIN var using .)
+
+
+state 63
+
+    (28) using -> USING . ( var = nr ) ;
+    (29) using -> USING . ( var = string ) ;
+
+    (               shift and go to state 71
+
+
+state 64
+
+    (31) operator -> var = nr . op
+    (39) op -> . ;
+    (40) op -> . AND operator
+    (41) op -> . LIMIT nr ;
+
+    ;               shift and go to state 73
+    AND             shift and go to state 74
+    LIMIT           shift and go to state 75
+
+    op                             shift and go to state 72
+
+state 65
+
+    (32) operator -> var = string . op
+    (39) op -> . ;
+    (40) op -> . AND operator
+    (41) op -> . LIMIT nr ;
+
+    ;               shift and go to state 73
+    AND             shift and go to state 74
+    LIMIT           shift and go to state 75
+
+    op                             shift and go to state 76
+
+state 66
+
+    (33) operator -> var < > . nr op
+    (34) operator -> var < > . string op
+
+    nr              shift and go to state 77
+    string          shift and go to state 78
+
+
+state 67
+
+    (35) operator -> var < nr . op
+    (39) op -> . ;
+    (40) op -> . AND operator
+    (41) op -> . LIMIT nr ;
+
+    ;               shift and go to state 73
+    AND             shift and go to state 74
+    LIMIT           shift and go to state 75
+
+    op                             shift and go to state 79
+
+state 68
+
+    (37) operator -> var < = . nr op
+
+    nr              shift and go to state 80
+
+
+state 69
+
+    (36) operator -> var > nr . op
+    (39) op -> . ;
+    (40) op -> . AND operator
+    (41) op -> . LIMIT nr ;
+
+    ;               shift and go to state 73
+    AND             shift and go to state 74
+    LIMIT           shift and go to state 75
+
+    op                             shift and go to state 81
+
+state 70
+
+    (38) operator -> var > = . nr op
+
+    nr              shift and go to state 82
+
+
+state 71
+
+    (28) using -> USING ( . var = nr ) ;
+    (29) using -> USING ( . var = string ) ;
+
+    var             shift and go to state 83
+
+
+state 72
+
+    (31) operator -> var = nr op .
+
+    LOAD            reduce using rule 31 (operator -> var = nr op .)
+    DISCARD         reduce using rule 31 (operator -> var = nr op .)
+    SHOW            reduce using rule 31 (operator -> var = nr op .)
+    SAVE            reduce using rule 31 (operator -> var = nr op .)
+    SELECT          reduce using rule 31 (operator -> var = nr op .)
+    CREATE          reduce using rule 31 (operator -> var = nr op .)
+    PROCED          reduce using rule 31 (operator -> var = nr op .)
+    var             reduce using rule 31 (operator -> var = nr op .)
+    CALL            reduce using rule 31 (operator -> var = nr op .)
+    $end            reduce using rule 31 (operator -> var = nr op .)
+    END             reduce using rule 31 (operator -> var = nr op .)
+
+
+state 73
+
+    (39) op -> ; .
+
+    LOAD            reduce using rule 39 (op -> ; .)
+    DISCARD         reduce using rule 39 (op -> ; .)
+    SHOW            reduce using rule 39 (op -> ; .)
+    SAVE            reduce using rule 39 (op -> ; .)
+    SELECT          reduce using rule 39 (op -> ; .)
+    CREATE          reduce using rule 39 (op -> ; .)
+    PROCED          reduce using rule 39 (op -> ; .)
+    var             reduce using rule 39 (op -> ; .)
+    CALL            reduce using rule 39 (op -> ; .)
+    $end            reduce using rule 39 (op -> ; .)
+    END             reduce using rule 39 (op -> ; .)
+
+
+state 74
+
+    (40) op -> AND . operator
+    (31) operator -> . var = nr op
+    (32) operator -> . var = string op
+    (33) operator -> . var < > nr op
+    (34) operator -> . var < > string op
+    (35) operator -> . var < nr op
+    (36) operator -> . var > nr op
+    (37) operator -> . var < = nr op
+    (38) operator -> . var > = nr op
+
+    var             shift and go to state 57
+
+    operator                       shift and go to state 84
+
+state 75
+
+    (41) op -> LIMIT . nr ;
+
+    nr              shift and go to state 85
+
+
+state 76
+
+    (32) operator -> var = string op .
+
+    LOAD            reduce using rule 32 (operator -> var = string op .)
+    DISCARD         reduce using rule 32 (operator -> var = string op .)
+    SHOW            reduce using rule 32 (operator -> var = string op .)
+    SAVE            reduce using rule 32 (operator -> var = string op .)
+    SELECT          reduce using rule 32 (operator -> var = string op .)
+    CREATE          reduce using rule 32 (operator -> var = string op .)
+    PROCED          reduce using rule 32 (operator -> var = string op .)
+    var             reduce using rule 32 (operator -> var = string op .)
+    CALL            reduce using rule 32 (operator -> var = string op .)
+    $end            reduce using rule 32 (operator -> var = string op .)
+    END             reduce using rule 32 (operator -> var = string op .)
+
+
+state 77
+
+    (33) operator -> var < > nr . op
+    (39) op -> . ;
+    (40) op -> . AND operator
+    (41) op -> . LIMIT nr ;
+
+    ;               shift and go to state 73
+    AND             shift and go to state 74
+    LIMIT           shift and go to state 75
+
+    op                             shift and go to state 86
+
+state 78
+
+    (34) operator -> var < > string . op
+    (39) op -> . ;
+    (40) op -> . AND operator
+    (41) op -> . LIMIT nr ;
+
+    ;               shift and go to state 73
+    AND             shift and go to state 74
+    LIMIT           shift and go to state 75
+
+    op                             shift and go to state 87
+
+state 79
+
+    (35) operator -> var < nr op .
+
+    LOAD            reduce using rule 35 (operator -> var < nr op .)
+    DISCARD         reduce using rule 35 (operator -> var < nr op .)
+    SHOW            reduce using rule 35 (operator -> var < nr op .)
+    SAVE            reduce using rule 35 (operator -> var < nr op .)
+    SELECT          reduce using rule 35 (operator -> var < nr op .)
+    CREATE          reduce using rule 35 (operator -> var < nr op .)
+    PROCED          reduce using rule 35 (operator -> var < nr op .)
+    var             reduce using rule 35 (operator -> var < nr op .)
+    CALL            reduce using rule 35 (operator -> var < nr op .)
+    $end            reduce using rule 35 (operator -> var < nr op .)
+    END             reduce using rule 35 (operator -> var < nr op .)
+
+
+state 80
+
+    (37) operator -> var < = nr . op
+    (39) op -> . ;
+    (40) op -> . AND operator
+    (41) op -> . LIMIT nr ;
+
+    ;               shift and go to state 73
+    AND             shift and go to state 74
+    LIMIT           shift and go to state 75
+
+    op                             shift and go to state 88
+
+state 81
+
+    (36) operator -> var > nr op .
+
+    LOAD            reduce using rule 36 (operator -> var > nr op .)
+    DISCARD         reduce using rule 36 (operator -> var > nr op .)
+    SHOW            reduce using rule 36 (operator -> var > nr op .)
+    SAVE            reduce using rule 36 (operator -> var > nr op .)
+    SELECT          reduce using rule 36 (operator -> var > nr op .)
+    CREATE          reduce using rule 36 (operator -> var > nr op .)
+    PROCED          reduce using rule 36 (operator -> var > nr op .)
+    var             reduce using rule 36 (operator -> var > nr op .)
+    CALL            reduce using rule 36 (operator -> var > nr op .)
+    $end            reduce using rule 36 (operator -> var > nr op .)
+    END             reduce using rule 36 (operator -> var > nr op .)
+
+
+state 82
+
+    (38) operator -> var > = nr . op
+    (39) op -> . ;
+    (40) op -> . AND operator
+    (41) op -> . LIMIT nr ;
+
+    ;               shift and go to state 73
+    AND             shift and go to state 74
+    LIMIT           shift and go to state 75
+
+    op                             shift and go to state 89
+
+state 83
+
+    (28) using -> USING ( var . = nr ) ;
+    (29) using -> USING ( var . = string ) ;
+
+    =               shift and go to state 90
+
+
+state 84
+
+    (40) op -> AND operator .
+
+    LOAD            reduce using rule 40 (op -> AND operator .)
+    DISCARD         reduce using rule 40 (op -> AND operator .)
+    SHOW            reduce using rule 40 (op -> AND operator .)
+    SAVE            reduce using rule 40 (op -> AND operator .)
+    SELECT          reduce using rule 40 (op -> AND operator .)
+    CREATE          reduce using rule 40 (op -> AND operator .)
+    PROCED          reduce using rule 40 (op -> AND operator .)
+    var             reduce using rule 40 (op -> AND operator .)
+    CALL            reduce using rule 40 (op -> AND operator .)
+    $end            reduce using rule 40 (op -> AND operator .)
+    END             reduce using rule 40 (op -> AND operator .)
+
+
+state 85
+
+    (41) op -> LIMIT nr . ;
+
+    ;               shift and go to state 91
+
+
+state 86
+
+    (33) operator -> var < > nr op .
+
+    LOAD            reduce using rule 33 (operator -> var < > nr op .)
+    DISCARD         reduce using rule 33 (operator -> var < > nr op .)
+    SHOW            reduce using rule 33 (operator -> var < > nr op .)
+    SAVE            reduce using rule 33 (operator -> var < > nr op .)
+    SELECT          reduce using rule 33 (operator -> var < > nr op .)
+    CREATE          reduce using rule 33 (operator -> var < > nr op .)
+    PROCED          reduce using rule 33 (operator -> var < > nr op .)
+    var             reduce using rule 33 (operator -> var < > nr op .)
+    CALL            reduce using rule 33 (operator -> var < > nr op .)
+    $end            reduce using rule 33 (operator -> var < > nr op .)
+    END             reduce using rule 33 (operator -> var < > nr op .)
+
+
+state 87
+
+    (34) operator -> var < > string op .
+
+    LOAD            reduce using rule 34 (operator -> var < > string op .)
+    DISCARD         reduce using rule 34 (operator -> var < > string op .)
+    SHOW            reduce using rule 34 (operator -> var < > string op .)
+    SAVE            reduce using rule 34 (operator -> var < > string op .)
+    SELECT          reduce using rule 34 (operator -> var < > string op .)
+    CREATE          reduce using rule 34 (operator -> var < > string op .)
+    PROCED          reduce using rule 34 (operator -> var < > string op .)
+    var             reduce using rule 34 (operator -> var < > string op .)
+    CALL            reduce using rule 34 (operator -> var < > string op .)
+    $end            reduce using rule 34 (operator -> var < > string op .)
+    END             reduce using rule 34 (operator -> var < > string op .)
+
+
+state 88
+
+    (37) operator -> var < = nr op .
+
+    LOAD            reduce using rule 37 (operator -> var < = nr op .)
+    DISCARD         reduce using rule 37 (operator -> var < = nr op .)
+    SHOW            reduce using rule 37 (operator -> var < = nr op .)
+    SAVE            reduce using rule 37 (operator -> var < = nr op .)
+    SELECT          reduce using rule 37 (operator -> var < = nr op .)
+    CREATE          reduce using rule 37 (operator -> var < = nr op .)
+    PROCED          reduce using rule 37 (operator -> var < = nr op .)
+    var             reduce using rule 37 (operator -> var < = nr op .)
+    CALL            reduce using rule 37 (operator -> var < = nr op .)
+    $end            reduce using rule 37 (operator -> var < = nr op .)
+    END             reduce using rule 37 (operator -> var < = nr op .)
+
+
+state 89
+
+    (38) operator -> var > = nr op .
+
+    LOAD            reduce using rule 38 (operator -> var > = nr op .)
+    DISCARD         reduce using rule 38 (operator -> var > = nr op .)
+    SHOW            reduce using rule 38 (operator -> var > = nr op .)
+    SAVE            reduce using rule 38 (operator -> var > = nr op .)
+    SELECT          reduce using rule 38 (operator -> var > = nr op .)
+    CREATE          reduce using rule 38 (operator -> var > = nr op .)
+    PROCED          reduce using rule 38 (operator -> var > = nr op .)
+    var             reduce using rule 38 (operator -> var > = nr op .)
+    CALL            reduce using rule 38 (operator -> var > = nr op .)
+    $end            reduce using rule 38 (operator -> var > = nr op .)
+    END             reduce using rule 38 (operator -> var > = nr op .)
+
+
+state 90
+
+    (28) using -> USING ( var = . nr ) ;
+    (29) using -> USING ( var = . string ) ;
+
+    nr              shift and go to state 92
+    string          shift and go to state 93
+
+
+state 91
+
+    (41) op -> LIMIT nr ; .
+
+    LOAD            reduce using rule 41 (op -> LIMIT nr ; .)
+    DISCARD         reduce using rule 41 (op -> LIMIT nr ; .)
+    SHOW            reduce using rule 41 (op -> LIMIT nr ; .)
+    SAVE            reduce using rule 41 (op -> LIMIT nr ; .)
+    SELECT          reduce using rule 41 (op -> LIMIT nr ; .)
+    CREATE          reduce using rule 41 (op -> LIMIT nr ; .)
+    PROCED          reduce using rule 41 (op -> LIMIT nr ; .)
+    var             reduce using rule 41 (op -> LIMIT nr ; .)
+    CALL            reduce using rule 41 (op -> LIMIT nr ; .)
+    $end            reduce using rule 41 (op -> LIMIT nr ; .)
+    END             reduce using rule 41 (op -> LIMIT nr ; .)
+
+
+state 92
+
+    (28) using -> USING ( var = nr . ) ;
+
+    )               shift and go to state 94
+
+
+state 93
+
+    (29) using -> USING ( var = string . ) ;
+
+    )               shift and go to state 95
+
+
+state 94
+
+    (28) using -> USING ( var = nr ) . ;
+
+    ;               shift and go to state 96
+
+
+state 95
+
+    (29) using -> USING ( var = string ) . ;
+
+    ;               shift and go to state 97
+
+
+state 96
+
+    (28) using -> USING ( var = nr ) ; .
+
+    LOAD            reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    DISCARD         reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    SHOW            reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    SAVE            reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    SELECT          reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    CREATE          reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    PROCED          reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    var             reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    CALL            reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    $end            reduce using rule 28 (using -> USING ( var = nr ) ; .)
+    END             reduce using rule 28 (using -> USING ( var = nr ) ; .)
+
+
+state 97
+
+    (29) using -> USING ( var = string ) ; .
+
+    LOAD            reduce using rule 29 (using -> USING ( var = string ) ; .)
+    DISCARD         reduce using rule 29 (using -> USING ( var = string ) ; .)
+    SHOW            reduce using rule 29 (using -> USING ( var = string ) ; .)
+    SAVE            reduce using rule 29 (using -> USING ( var = string ) ; .)
+    SELECT          reduce using rule 29 (using -> USING ( var = string ) ; .)
+    CREATE          reduce using rule 29 (using -> USING ( var = string ) ; .)
+    PROCED          reduce using rule 29 (using -> USING ( var = string ) ; .)
+    var             reduce using rule 29 (using -> USING ( var = string ) ; .)
+    CALL            reduce using rule 29 (using -> USING ( var = string ) ; .)
+    $end            reduce using rule 29 (using -> USING ( var = string ) ; .)
+    END             reduce using rule 29 (using -> USING ( var = string ) ; .)
+
